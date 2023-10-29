@@ -23,10 +23,12 @@ namespace курсовая_сиаод
             Close();
         }
 
+
         private void buttonSort_Click(object sender, EventArgs e)
         {
             SinglyLlinkedList.GetRandomUnorderedList(1000);
         }
+
 
     }
 }

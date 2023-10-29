@@ -9,6 +9,7 @@ namespace курсовая_сиаод
 {
     internal static class sorter
     {
+
         public static long ShellSortingMethodOfDividingInHalf(SinglyLlinkedList list)
         {
             var gap = list.Length / 2;
@@ -31,6 +32,7 @@ namespace курсовая_сиаод
             //return array;
             return sw.ElapsedMilliseconds;
         }
+
         public static long ShellSortingMethodVirt(SinglyLlinkedList list)
         {
             int gap = list.Length / 2;
@@ -78,6 +80,7 @@ namespace курсовая_сиаод
             return sw.ElapsedMilliseconds;
 
         }
+
 
     }
 }

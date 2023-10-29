@@ -24,8 +24,6 @@ namespace курсовая_сиаод
         }
 
     }
-    internal class SinglyLlinkedList
-    {
         public Node FirstNode = null;
         public int Length = 0;
         public void AddLast(Node node)
