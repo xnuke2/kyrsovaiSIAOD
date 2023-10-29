@@ -9,7 +9,6 @@ namespace курсовая_сиаод
 {
     internal static class sorter
     {
-
         public static long ShellSortingMethodOfDividingInHalf(SinglyLlinkedList list)
         {
             var gap = list.Length / 2;
@@ -17,22 +16,19 @@ namespace курсовая_сиаод
             sw.Start();
             while (gap >= 1)
             {
-                for (var i = gap; i < list.Length; i++)
+                int i, j;
+                for ( i = gap; i < list.Length; i++)
                 {
-                    var j = i;
-                    while ((j >= gap) && (list.GetNode(j - gap).data > list.GetNode(j).data))
-                    {
-                        list.swap(j, j - gap);
-                        j = j - gap;
-                    }
+                    int value = list.GetNode(i).data;
+                    for (j = i - gap; (j >= 0) && (list.GetNode(j).data > value); j -= gap)
+                        list.GetNode(j + gap).data = list.GetNode(j).data;
+                    list.GetNode(j + gap).data= value;
                 }
                 gap = gap / 2;
             }
             sw.Stop();
-            //return array;
             return sw.ElapsedMilliseconds;
         }
-
         public static long ShellSortingMethodVirt(SinglyLlinkedList list)
         {
             int gap = list.Length / 2;
@@ -40,16 +36,15 @@ namespace курсовая_сиаод
             sw.Start();
             while (gap >= 1)
             {
-                for (var i = gap; i < list.Length; i++)
+                int i, j;
+                for (i = gap; i < list.Length; i++)
                 {
-                    var j = i;
-                    while ((j >= gap) && (list.GetNode(j - gap).data > list.GetNode(j).data))
-                    {
-                        list.swap(j, j - gap);
-                        j = j - gap;
-                    }
+                    int value = list.GetNode(i).data;
+                    for (j = i - gap; (j >= 0) && (list.GetNode(j).data > value); j -= gap)
+                        list.GetNode(j + gap).data = list.GetNode(j).data;
+                    list.GetNode(j + gap).data = value;
                 }
-                gap = (gap - 1) / 2;
+                gap = (gap - 1) / 3;
             }
             sw.Stop();
             //return array;
@@ -58,20 +53,18 @@ namespace курсовая_сиаод
         }
         public static long ShellSortingMethodKnyt(SinglyLlinkedList list)
         {
-
-            int gap =(int) Math.Log(list.Length,3);
+            int gap =(int)Math.Pow(3, (int)Math.Log(list.Length, 3));
             var sw = new Stopwatch();
             sw.Start();
             while (gap >= 1)
             {
-                for (var i = gap; i < list.Length; i++)
+                int i, j;
+                for (i = gap; i < list.Length; i++)
                 {
-                    var j = i;
-                    while ((j >= gap) && (list.GetNode(j - gap).data > list.GetNode(j).data))
-                    {
-                        list.swap(j, j - gap);
-                        j = j - gap;
-                    }
+                    int value = list.GetNode(i).data;
+                    for (j = i - gap; (j >= 0) && (list.GetNode(j).data > value); j -= gap)
+                        list.GetNode(j + gap).data = list.GetNode(j).data;
+                    list.GetNode(j + gap).data = value;
                 }
                 gap = gap / 3;
             }

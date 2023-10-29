@@ -14,16 +14,16 @@ namespace курсовая_сиаод
     {
         public class Node
         {
-        public int data;
-        public Node next;
-        public Node() { }
-        public Node(int data, Node next = null)
-        {
-            this.data = data;
-            this.next = next;
-        }
+            public int data;
+            public Node next;
+            public Node() { }
+            public Node(int data, Node next = null)
+            {
+                this.data = data;
+                this.next = next;
+            }
 
-    }
+        }
         public Node FirstNode = null;
         public int Length = 0;
         public void AddLast(Node node)
@@ -148,7 +148,10 @@ namespace курсовая_сиаод
             SinglyLlinkedList tmp = SinglyLlinkedList.GetRandomOrderedList(size);
             for (int i = 0; i < size/2; i++)
             {
-                tmp.swap(i, size - i);
+                int tmpInt = tmp.GetNode(i).data;
+                tmp.GetNode(i).data = tmp.GetNode(size - i - 1).data;
+                tmp.GetNode(size - i - 1).data= tmpInt;
+                //tmp.swap(i, size - i-1);
             }
             return tmp;
         }
