@@ -27,5 +27,6 @@ namespace курсовая_сиаод
         {
             SinglyLlinkedList.GetRandomUnorderedList(1000);
         }
+
     }
 }
