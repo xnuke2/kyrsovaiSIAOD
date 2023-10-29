@@ -14,16 +14,18 @@ namespace курсовая_сиаод
     {
         public class Node
         {
-            public int data;
-            public Node next;
-            public Node() { }
-            public Node(int data, Node next = null)
-            {
-                this.data = data;
-                this.next = next;
-            }
-
+        public int data;
+        public Node next;
+        public Node() { }
+        public Node(int data, Node next = null)
+        {
+            this.data = data;
+            this.next = next;
         }
+
+    }
+    internal class SinglyLlinkedList
+    {
         public Node FirstNode = null;
         public int Length = 0;
         public void AddLast(Node node)
