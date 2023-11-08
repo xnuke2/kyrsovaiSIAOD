@@ -28,15 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel4 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
-            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel5 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
-            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel6 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
-            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine3 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
-            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine4 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine1 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
+            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine2 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.chartGrafics = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -51,12 +47,6 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonSort = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeOfList = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.chartGrafics)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -71,38 +61,24 @@
             this.chartGrafics.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            customLabel4.FromPosition = 10D;
-            customLabel4.Text = "Алгоритмом определения шага Кнут";
-            customLabel5.FromPosition = 20D;
-            customLabel5.Text = "Алгоритмом определения шага Вирт";
-            customLabel6.FromPosition = 30D;
-            customLabel6.Text = "Алгоритмом определения\n шага деление пополам";
-            chartArea2.AxisX.CustomLabels.Add(customLabel4);
-            chartArea2.AxisX.CustomLabels.Add(customLabel5);
-            chartArea2.AxisX.CustomLabels.Add(customLabel6);
-            chartArea2.AxisX.Interval = 5D;
-            stripLine3.Text = "выап";
-            stripLine4.Text = "фываф";
-            chartArea2.AxisX.StripLines.Add(stripLine3);
-            chartArea2.AxisX.StripLines.Add(stripLine4);
-            chartArea2.Name = "ChartArea1";
-            this.chartGrafics.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartGrafics.Legends.Add(legend2);
+            chartArea1.AxisX.Interval = 5D;
+            stripLine1.Text = "выап";
+            stripLine2.Text = "фываф";
+            chartArea1.AxisX.StripLines.Add(stripLine1);
+            chartArea1.AxisX.StripLines.Add(stripLine2);
+            chartArea1.Name = "ChartArea1";
+            this.chartGrafics.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartGrafics.Legends.Add(legend1);
             this.chartGrafics.Location = new System.Drawing.Point(243, 12);
             this.chartGrafics.Name = "chartGrafics";
             this.chartGrafics.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series2.Legend = "Legend1";
-            series2.Name = "Здесь будет отображаться номер сортировки из таблицы";
-            this.chartGrafics.Series.Add(series2);
-            this.chartGrafics.Size = new System.Drawing.Size(529, 280);
+            this.chartGrafics.Size = new System.Drawing.Size(879, 280);
             this.chartGrafics.TabIndex = 0;
             this.chartGrafics.Text = "chart1";
-            title2.Name = "Title1";
-            title2.Text = "Сравнение времени сортировки";
-            this.chartGrafics.Titles.Add(title2);
+            title1.Name = "Title1";
+            title1.Text = "Сравнение времени сортировки";
+            this.chartGrafics.Titles.Add(title1);
             // 
             // groupBox1
             // 
@@ -211,7 +187,7 @@
             0,
             0});
             this.numericUpDownSizeList.Minimum = new decimal(new int[] {
-            1,
+            100,
             0,
             0,
             0});
@@ -219,7 +195,7 @@
             this.numericUpDownSizeList.Size = new System.Drawing.Size(201, 20);
             this.numericUpDownSizeList.TabIndex = 0;
             this.numericUpDownSizeList.Value = new decimal(new int[] {
-            1,
+            100,
             0,
             0,
             0});
@@ -247,73 +223,28 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column5,
-            this.TypeOfList,
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
             this.dataGridView1.Location = new System.Drawing.Point(243, 298);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(529, 151);
+            this.dataGridView1.Size = new System.Drawing.Size(879, 151);
             this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "№";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 40;
-            // 
-            // TypeOfList
-            // 
-            this.TypeOfList.HeaderText = "Тип списка";
-            this.TypeOfList.Name = "TypeOfList";
-            this.TypeOfList.ReadOnly = true;
-            this.TypeOfList.Width = 50;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Длина списка";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Время сортировки алгоритмом шага Вирт";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Время сортировки алгоритмом шага Кнут";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Время сортировки алгоритмом шага деления пополам";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(1134, 461);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.chartGrafics);
-            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(1150, 500);
             this.Name = "Form1";
-            this.Text = "Курсовая работа Хмыренков";
+            this.Text = "Сравнение и анализ алгоритмов сортировка списка методом Шелла";
             ((System.ComponentModel.ISupportInitialize)(this.chartGrafics)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPercentOfFill)).EndInit();
@@ -340,12 +271,6 @@
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonSort;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeOfList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }
 

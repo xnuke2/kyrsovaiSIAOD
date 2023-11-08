@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace курсовая_сиаод
 {
     public partial class Form1 : Form
     {
-        public int NumOfCheck = 1;
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace курсовая_сиаод
 
         private void buttonSort_Click(object sender, EventArgs e)
         {
-            SinglyLlinkedList.GetRandomUnorderedList(1000);
+
             string value = "";
             if (radioButton1.Checked)
                 value = radioButton1.Text;
@@ -39,37 +39,63 @@ namespace курсовая_сиаод
             else if (radioButton4.Checked)
                 value = radioButton4.Text;
             else value = "error";
+            this.dataGridView1.Columns.Clear();
+            this.dataGridView1.Columns.Add("NameOfAlgoritm", "Название алгоритма");
+            this.dataGridView1.Columns[0].Width = 340;
+            for (int i = 0; i < 10; i++)
+            {
+                this.dataGridView1.Columns.Add(Convert.ToString(Convert.ToInt64(numericUpDownSizeList.Value) / 10 * (i + 1)), Convert.ToString(Convert.ToInt64(numericUpDownSizeList.Value) / 10 * (i + 1)));
+                this.dataGridView1.Columns[i+1].Width = 50;
+            }
+            this.dataGridView1.Rows.Clear();
+            this.dataGridView1.Rows.Add();
+            this.dataGridView1.Rows.Add();
+            this.dataGridView1.Rows.Add();
+            this.dataGridView1.Rows[0].Cells[0].Value = "Сортировка Шелла методом нахождения шага Кнут";
+            this.dataGridView1.Rows[1].Cells[0].Value = "Сортировка Шелла методом нахождения шага Вирт";
+            this.dataGridView1.Rows[2].Cells[0].Value = "Сортировка Шелла методом нахождения шага деление пополам";
             if (value == "Неупорядоченый")
-                this.dataGridView1.Rows.Add(NumOfCheck, value, numericUpDownSizeList.Value, 
-                    sorter.ShellSortingMethodVirt(SinglyLlinkedList.GetRandomUnorderedList((int)numericUpDownSizeList.Value)),
-                    sorter.ShellSortingMethodKnyt(SinglyLlinkedList.GetRandomUnorderedList((int)numericUpDownSizeList.Value)),
-                    sorter.ShellSortingMethodOfDividingInHalf(SinglyLlinkedList.GetRandomUnorderedList((int)numericUpDownSizeList.Value)));
+                for (int i = 1; i < 11; i++)
+                {
+                    this.dataGridView1.Rows[0].Cells[i].Value = (int)sorter.ShellSortingMethodKnyt(SinglyLlinkedList.GetRandomUnorderedList(Convert.ToInt32(numericUpDownSizeList.Value) / 10 * i));
+                    this.dataGridView1.Rows[1].Cells[i].Value = sorter.ShellSortingMethodVirt(SinglyLlinkedList.GetRandomUnorderedList(Convert.ToInt32(numericUpDownSizeList.Value) / 10 * i));
+                    this.dataGridView1.Rows[2].Cells[i].Value = sorter.ShellSortingMethodOfDividingInHalf(SinglyLlinkedList.GetRandomUnorderedList(Convert.ToInt32(numericUpDownSizeList.Value) / 10 * i));
+                }
             else if (value == "Упорядоченый")
-                this.dataGridView1.Rows.Add(NumOfCheck, value, numericUpDownSizeList.Value,
-                    sorter.ShellSortingMethodVirt(SinglyLlinkedList.GetRandomOrderedList((int)numericUpDownSizeList.Value)),
-                    sorter.ShellSortingMethodKnyt(SinglyLlinkedList.GetRandomOrderedList((int)numericUpDownSizeList.Value)),
-                    sorter.ShellSortingMethodOfDividingInHalf(SinglyLlinkedList.GetRandomOrderedList((int)numericUpDownSizeList.Value)));
+                for (int i = 1; i < 11; i++)
+                {
+                    this.dataGridView1.Rows[0].Cells[i].Value = (int)sorter.ShellSortingMethodKnyt(SinglyLlinkedList.GetRandomOrderedList(Convert.ToInt32(numericUpDownSizeList.Value) / 10 * i));
+                    this.dataGridView1.Rows[1].Cells[i].Value = sorter.ShellSortingMethodVirt(SinglyLlinkedList.GetRandomOrderedList(Convert.ToInt32(numericUpDownSizeList.Value) / 10 * i));
+                    this.dataGridView1.Rows[2].Cells[i].Value = sorter.ShellSortingMethodOfDividingInHalf(SinglyLlinkedList.GetRandomOrderedList(Convert.ToInt32(numericUpDownSizeList.Value) / 10 * i));
+                }
             else if (value == "Упорядоченный в обратном порядке")
-                this.dataGridView1.Rows.Add(NumOfCheck, value, numericUpDownSizeList.Value,
-    sorter.ShellSortingMethodVirt(SinglyLlinkedList.GetRandomOrderedInReverseOrderList((int)numericUpDownSizeList.Value)),
-    sorter.ShellSortingMethodKnyt(SinglyLlinkedList.GetRandomOrderedInReverseOrderList((int)numericUpDownSizeList.Value)),
-    sorter.ShellSortingMethodOfDividingInHalf(SinglyLlinkedList.GetRandomOrderedInReverseOrderList((int)numericUpDownSizeList.Value)));
+                for (int i = 1; i < 11; i++)
+                {
+                    this.dataGridView1.Rows[0].Cells[i].Value = (int)sorter.ShellSortingMethodKnyt(SinglyLlinkedList.GetRandomOrderedInReverseOrderList(Convert.ToInt32(numericUpDownSizeList.Value) / 10 * i));
+                    this.dataGridView1.Rows[1].Cells[i].Value = sorter.ShellSortingMethodVirt(SinglyLlinkedList.GetRandomOrderedInReverseOrderList(Convert.ToInt32(numericUpDownSizeList.Value) / 10 * i));
+                    this.dataGridView1.Rows[2].Cells[i].Value = sorter.ShellSortingMethodOfDividingInHalf(SinglyLlinkedList.GetRandomOrderedInReverseOrderList(Convert.ToInt32(numericUpDownSizeList.Value) / 10 * i));
+                }
             else
-                this.dataGridView1.Rows.Add(NumOfCheck, value, numericUpDownSizeList.Value,
-    sorter.ShellSortingMethodVirt(SinglyLlinkedList.GetRandomPartlyOrderedList((int)numericUpDownSizeList.Value, (int)numericUpDownPercentOfFill.Value)),
-    sorter.ShellSortingMethodKnyt(SinglyLlinkedList.GetRandomPartlyOrderedList((int)numericUpDownSizeList.Value, (int)numericUpDownPercentOfFill.Value)),
-    sorter.ShellSortingMethodOfDividingInHalf(SinglyLlinkedList.GetRandomPartlyOrderedList((int)numericUpDownSizeList.Value, (int)numericUpDownPercentOfFill.Value)));    
-            NumOfCheck++;
+                for (int i = 1; i < 11; i++)
+                {
+                    this.dataGridView1.Rows[0].Cells[i].Value = (int)sorter.ShellSortingMethodKnyt(SinglyLlinkedList.GetRandomPartlyOrderedList(Convert.ToInt32(numericUpDownSizeList.Value) / 10 * i, (int)numericUpDownPercentOfFill.Value));
+                    this.dataGridView1.Rows[1].Cells[i].Value = sorter.ShellSortingMethodVirt(SinglyLlinkedList.GetRandomPartlyOrderedList(Convert.ToInt32(numericUpDownSizeList.Value) / 10 * i, (int)numericUpDownPercentOfFill.Value));
+                    this.dataGridView1.Rows[2].Cells[i].Value = sorter.ShellSortingMethodOfDividingInHalf(SinglyLlinkedList.GetRandomPartlyOrderedList(Convert.ToInt32(numericUpDownSizeList.Value) / 10 * i, (int)numericUpDownPercentOfFill.Value));
+                }
+            
+            chartGrafics.Series.Clear();
+            for (int i = 0; i < 3; i++)
+            {
+                chartGrafics.Series.Add((string)this.dataGridView1.Rows[i].Cells[0].Value);
+                chartGrafics.Series[i].ChartType = SeriesChartType.Spline;
+                for (int j = 1; j < 11; j++)
+                    chartGrafics.Series[i].Points.AddXY(this.dataGridView1.Columns[j].HeaderText, dataGridView1.Rows[i].Cells[j].Value);
+            }
+            chartGrafics.Series[0].Color = Color.Green;
+            chartGrafics.Series[1].Color = Color.Red;
+            chartGrafics.Series[2].Color = Color.Blue;
         }
 
-        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            chartGrafics.Series[0].Points.Clear();
-            if (this.dataGridView1.CurrentCell.RowIndex == -1) throw new Exception("неккоректный выбор строки таблицы");
-            chartGrafics.Series[0].Name =dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value+"";
-            chartGrafics.Series[0].Points.AddXY(5, dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value);
-            chartGrafics.Series[0].Points.AddXY(10, dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value);
-            chartGrafics.Series[0].Points.AddXY(15, dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[5].Value);
-        }
+
     }
 }

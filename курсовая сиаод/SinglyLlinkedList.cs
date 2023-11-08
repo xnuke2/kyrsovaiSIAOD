@@ -125,7 +125,6 @@ namespace курсовая_сиаод
             Random rnd = new Random();
             for (int i = 0; i < size; i++)
             {
-
                 tmp.AddLast(new Node(rnd.Next(0, size)));
             }
             return tmp;
@@ -151,7 +150,6 @@ namespace курсовая_сиаод
                 int tmpInt = tmp.GetNode(i).data;
                 tmp.GetNode(i).data = tmp.GetNode(size - i - 1).data;
                 tmp.GetNode(size - i - 1).data= tmpInt;
-                //tmp.swap(i, size - i-1);
             }
             return tmp;
         }

@@ -9,6 +9,7 @@ namespace курсовая_сиаод
 {
     internal static class sorter
     {
+
         public static long ShellSortingMethodOfDividingInHalf(SinglyLlinkedList list)
         {
             var gap = list.Length / 2;
